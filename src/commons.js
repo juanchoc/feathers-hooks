@@ -59,8 +59,8 @@ export function addHookTypes (target, types = ['before', 'after', 'error']) {
 }
 
 export function getHooks (app, service, type, method, appLast = false) {
-  const appHooks = app.__hooks[type][method] || [];
-  const serviceHooks = service.__hooks[type][method] || [];
+  let appHooks = app.__hooks[type][method] || [];
+  let serviceHooks = service.__hooks[type][method] || [];
 
   appHooks = appHooks.filter(function(n){ return n != undefined });
   serviceHooks = serviceHooks.filter(function(n){ return n != undefined });
